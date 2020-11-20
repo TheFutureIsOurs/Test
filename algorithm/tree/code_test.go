@@ -13,5 +13,7 @@ func TestSeRe(t *testing.T) {
 	fmt.Println(str)
 	tree = UnSerialize(str)
 	PrintTree(tree)
+	str = Serialize1(tree)
+	fmt.Println(str)
 
 }

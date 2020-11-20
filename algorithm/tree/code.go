@@ -89,3 +89,21 @@ func UnSerialize(str string) *TreeNode {
 	tree := dfs(fields)
 	return tree
 }
+
+// Serialize1 二叉树序列化-层序
+func Serialize1(root *TreeNode) string {
+	res := []string{}
+	queue := []*TreeNode{root}
+	for len(queue) != 0 {
+		node := queue[0]
+		queue = queue[1:]
+		if node == nil {
+			res = append(res, "#")
+			continue
+		}
+		res = append(res, strconv.Itoa(node.Val))
+		queue = append(queue, node.Left)
+		queue = append(queue, node.Right)
+	}
+	return strings.Join(res, ",")
+}
